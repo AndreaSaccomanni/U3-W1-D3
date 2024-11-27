@@ -20,6 +20,7 @@ class BookList extends Component {
     //creo un array che contiene solo i libri che contengono quello che viene inserito nell'input
     const filteredArrBooks = books.filter((book) => book.title.toLowerCase().includes(searchInput.toLowerCase()));
     //aggiorno lo state e filteredBooks non è più books, quindi tutti i libri, ma solo quelli filtrati
+    //dovrò cambiare l'array che verrà mappato con filteredBook, altrimenti non vedrei il cambiamento
     this.setState({ filteredBooks: filteredArrBooks });
   };
 
