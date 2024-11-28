@@ -23,6 +23,12 @@ class BookList extends Component {
     //dovrò cambiare l'array che verrà mappato con filteredBook, altrimenti non vedrei il cambiamento
     this.setState({ filteredBooks: filteredArrBooks });
   };
+  handleReset = (e) => {
+    e.preventDefault();
+    this.setState({ filteredBooks: books });
+    
+    this.setState({ searchInput: "" });
+  };
 
   render() {
     const filteredBooks = this.state.filteredBooks;
@@ -34,12 +40,16 @@ class BookList extends Component {
               <Form.Label className="fs-2">Search your books</Form.Label>
               <Form.Control //prittier-ignored
                 type="text"
+                value= {}
                 placeholder="Search books..."
                 onChange={(e) => this.setState({ searchInput: e.target.value })}
               />
             </Form.Group>
             <Button className="mt-3 py-1" type="submit">
               Search
+            </Button>
+            <Button className="mt-3 ms-3 bg-danger py-1" type="button" onClick={this.handleReset}>
+              Reset
             </Button>
           </Form>
         </div>
